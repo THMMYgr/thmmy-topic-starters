@@ -104,4 +104,4 @@ The Makefile also provides targets for cleaning the data and dangling images.
 
 ## License
 
-[![Beerware License](https://img.shields.io/badge/license-beerware%20%F0%9F%8D%BA-blue.svg)](https://gitlab.com/Apostolof/flavours-without-borders/blob/master/LICENSE.md)
+[![Beerware License](https://img.shields.io/badge/license-beerware%20%F0%9F%8D%BA-blue.svg)](https://github.com/ThmmyNoLife/thmmy-topic-starters/blob/develop/LICENSE)
