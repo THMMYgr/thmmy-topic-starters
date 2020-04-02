@@ -1,0 +1,42 @@
+version: '3.2'
+
+services:
+  topic_starters_postgres_data:
+    image: postgres:10.7
+    container_name: topic-starters-postgres
+    expose:
+      - "5432"
+    volumes:
+      - 'topic_starters_postgres_data:/var/lib/postgresql/data'
+    env_file:
+      - env/topic_starters_postgres.env
+    ports:
+      - "5432:5432"
+    networks:
+      - topic-starters-net
+    restart: on-failure
+
+  topic_starters:
+    build: ./
+    container_name: topic-starters-service
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./env/topic_starters_postgres.env
+    secrets:
+      - topic_starters_username
+      - topic_starters_password
+    networks:
+      - topic-starters-net
+    restart: on-failure
+
+volumes:
+  topic_starters_postgres_data:
+networks:
+  topic-starters-net:
+    driver: bridge
+secrets:
+  topic_starters_username:
+    file: ./secrets/username
+  topic_starters_password:
+    file: ./secrets/password

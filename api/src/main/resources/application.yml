@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: application/json,application/xml,text/plain
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://topic-starters-postgres:5432/${POSTGRES_DB}?ApplicationName=topic-starters
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    sql-script-encoding: UTF-8
+    initialization-mode: never
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  flyway:
+    enabled: true
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 128MB
+      max-request-size: 256MB
+
+  config:
+    additional-location: classpath:/config/development/
