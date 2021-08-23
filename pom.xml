@@ -38,7 +38,7 @@
 
         <vavr.version>1.0.0-alpha-3</vavr.version>
         <lombok.version>1.18.8</lombok.version>
-        <jsoup.version>1.12.1</jsoup.version>
+        <jsoup.version>1.14.2</jsoup.version>
         <okhttp.version>3.9.0</okhttp.version>
         <jackson.version>2.9.0</jackson.version>
     </properties>
